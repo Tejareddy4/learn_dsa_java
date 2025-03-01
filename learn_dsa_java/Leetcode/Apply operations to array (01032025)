@@ -1,0 +1,29 @@
+class Solution {
+    public int[] applyOperations(int[] nums) {
+
+        //taking the length of the array
+        int length = nums.length;
+        
+        //loop to check the condition
+        for(int i =0 ; i<length-1; i++){
+            if(nums[i] == nums[i+1]){
+                nums[i] = nums[i+1] * 2;
+                nums[i+1] = 0;
+            }
+        }
+        
+        //converting zeros to right end
+        //creating new array
+        int[] newarray = new int[length];
+        //count value
+        int count=0;
+        for(int num:nums){
+            if(num !=0){
+                newarray[count++] = num;
+            }
+        }
+    //returning new array only moved the non zero elements to the new array and remaining array value is by default zero in integer
+    return newarray;
+        
+    }
+}
