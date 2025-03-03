@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Solution {
+    public int[] pivotArray(int[] nums, int pivot) {
+
+        // creating the new 3 arraylist to store as per pivot element
+        List<Integer> small = new ArrayList<>();
+        List<Integer> mid = new ArrayList<>();
+        List<Integer> big = new ArrayList<>();
+        
+        //by using the for loop we can able to seperate the elements based on the data
+        for (int num : nums) {
+            if (num < pivot) {
+                small.add(num);
+            } else if (num == pivot) {
+                mid.add(num);
+            } else {
+                big.add(num);
+            }
+        }
+        
+        // creating the new array . Because we need to combine/merge the arraylist and the return 
+        //The array size should be the same as the original array
+        int[] result = new int[nums.length];
+        int index = 0;  // The index value should be 0. so we have intilized the value 0 
+
+        //by using the for each loop we are adding the arralist values to the result array and by using the array index we are counting the index value 
+        for (int num : small) result[index++] = num;
+        for (int num : mid) result[index++] = num;
+        for (int num : big) result[index++] = num;
+        
+
+        //returning the array 
+        return result;
+    }
+}
