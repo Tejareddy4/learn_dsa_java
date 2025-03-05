@@ -1,0 +1,23 @@
+class Solution {
+    public long coloredCells(int n) {
+
+        //intital formula is res= (1+((2*n)*(n-1)));
+        // Where i am getting an worng output at n=69675
+        //as i check and ask help with friend. in python the logic works fine
+        //where in java it don.due to int literal
+
+        long res = 1 + 2L * n * (n - 1);
+
+        /*
+        explanation from chat gpt:
+        The 2L in 2L * n * (n - 1) ensures that the multiplication is performed using long arithmetic in Java.
+
+Explanation:
+In Java, integer literals like 2 are of type int by default.
+If n is large (e.g., 69675), then 2 * n * (n - 1) could exceed the range of int (which is -2^31 to 2^31 - 1 or -2,147,483,648 to 2,147,483,647).
+Using 2L explicitly makes the multiplication use long (64-bit integer) instead of int (32-bit integer).
+This prevents integer overflow and ensures correctness when n is large.
+        */
+        return res;
+    }
+}
