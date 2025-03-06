@@ -1,0 +1,41 @@
+//Brute Force approach lagging one
+
+
+class Solution {
+    public int[] findMissingAndRepeatedValues(int[][] grid) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int sum=0;
+        int count = 0;
+        int in=0;
+        int[] num= new int[2];
+        for(int i=0;i<grid.length;i++){
+            for(int j=0;j<grid[i].length;j++){
+                int temp =grid[i][j];
+                in++;
+                if (map.containsKey(temp)) {
+                    map.put(temp, map.get(temp) + 1);
+                    
+                    }
+                     else {
+                        map.put(temp, 1);
+                        count = count+ temp;
+                        }             
+            }
+        }
+        map.forEach((key, value) -> {
+            if(value == 2){
+                num[0]= key;
+            }
+            });
+        
+        
+        for(int i=1;i<=in;i++){
+            sum = sum+i;
+        }
+        sum = sum - count;
+        System.out.println("count"+count);
+
+        num[1] = sum;
+    return num;
+    }
+}
